@@ -1,0 +1,56 @@
+/*!
+ * my primer css  Copyright 2020 
+ * Diana Lopez
+ */
+ 
+ /* por etiqueta */
+ body{
+		background-image:url(../Images/Fondo.jpg);	 
+		background-position: center;
+		background-size: contain;
+		background-repeat: initial;
+		color:white;
+ }
+ 
+ th{
+	 color:white;
+ }
+ 
+ label{
+	 color:black;
+ }
+ 
+ b{
+	 color:black
+ }
+
+
+ /* por clase */
+ .nav-link{
+	 color:white !important;
+	 padding-right:20px !important;
+ }
+ 
+   .nav-link:hover {
+    color: black !important;
+    cursor: pointer
+}
+
+   .nav-link:active {
+    background-color:white;
+}
+
+ 
+  /* por id */
+ #celda1{
+	 color:white;
+	 
+ }
+ 
+ #celda2{
+	 color:white;	 
+ }
+ 
+ 
+ 
+ 
