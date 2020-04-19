@@ -25,6 +25,7 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
+        <!---->
         <!-- opciones de menu -->
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav ml-auto">
@@ -45,7 +46,7 @@
         <!-- fin del menu -->
     </nav>
 
-    </br></br></br>
+    <br><br><br>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <!-- recuadro de o encabezado subtitulo -->
         <div class="jumbotron" style="background-color:#ff0000 ;">
@@ -66,17 +67,17 @@
         <div class="row">
             <!-- seccion para la ubicacion del menu -->
             <section id="somos">
-                </br></br></br></br> <!--separadores o espaciadores-->
+                <br><br><br><br> <!--separadores o espaciadores-->
                 <!-- titulo de la seccion -->
                 <h1 class="text-center">
                     QUIENES SOMOS
                 </h1>
                 <!-- imagen de la seccion -->
                 <div class="container col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                    <img src="Images/robin ilustrado.jpeg" class="img-fluid ">
+                    <img src="Images/robinilustrado.jpeg" class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 container">
-                    </br>
+                    <br>
                     <p><!--parrafos-->
                         Somos Soldepye, empresas dedicada a la prestacion de servicios de Ingenieria Electrica, con
                         servicio
@@ -103,21 +104,23 @@
 
         <div class="row">
             <section id="epp">
-                </br></br></br></br></br>
+                <br><br><br><br><br>
 
                 <div class="text-center">
                     <h1>
                         ELEMENTOS DE PROTECCIÓN PERSONAL (EPP)
                     </h1>
                 </div>
-                </br>
+                <br>
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="row justify-content-center">
                         <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 text-center">
-                            <img src="Images/todos epp 2.jpeg" class="img-fluid">
+                            <img src="Images/todosepp2.jpeg" class="img-fluid" alt="">
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12  align-self-center">
-                            <ul>Listado de EPP:
+                            <p>Listado de EPP:</p>
+
+                            <ul>
                                 <li>CASCO:Proteccion en la Cabeza</li>
                                 <li>MONOGAFAS:Proteccion en los ojos</li>
                                 <li>TAPA OIDOS:Proteccion en los oidos</li>
@@ -135,14 +138,14 @@
 
         <div class="row">
             <section class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="tarjeta">
-                </br></br></br></br>
+                <br><br><br><br>
                 <div class="text-center">
                     <h1>
                         TARJETA ROBIN TU AMIGO SEGURO
                     </h1>
                 </div>
                 <div class="text-center">
-                    </br>
+                    <br>
                     <p>
                         Este formulario te permitira reportar cualquier accidente, incidente, o algun factor de riesgo
                         dentro de tu
@@ -164,8 +167,7 @@
                                     <label for="fecha">
                                         Fecha del evento:
                                     </label>
-                                    <input class="form-control" type="date" id="fecha" name="fecha"
-                                        placeholder="Fecha del evento" required>
+                                    <input class="form-control" type="date" id="fecha" name="fecha" required>
                                 </div>
 
                                 <div class="form-group">
@@ -185,13 +187,14 @@
                                     <label>
                                         Telefono de Contacto:
                                     </label>
-                                    <input class="form-control" id="telefono" name="telefono" type="number" max="10" placeholder="Telefono de quien reporta.."  autocomplete="on"required>
+                                    <input class="form-control" id="telefono" name="telefono" type="number" min="7" placeholder="Telefono de quien reporta.."  autocomplete="on" required>
                                 </div>
                                 <div class="form-group">
                                     <label>
                                         Que Reporta:
                                     </label>
                                     <select class="form-control" id="evento" name="evento" required>
+                                        <option value="" selected>Seleccione un evento</option>
                                         <option value="A">Accidente</option>
                                         <option value="I">Incidente</option>
                                         <option value="F">Factor de riesgo</option>
@@ -216,7 +219,7 @@
 
         <div class="row">
             <section class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="contacto">
-                </br></br>
+                <br><br>
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
                     <h1>
                         Contacto
@@ -278,19 +281,20 @@
             </section>
         </div>
     </div>
+    <footer>
+        <div class="container-fluid bg-danger">
+            <!-- pie de pagina de la pagina -->
+            <br>
+            <p class="text-center">
+                Creado por: Diana Lopez
+                <br>
+                &copy; 2020
+            </p>
+            <br>
+        </div>
+    </footer>
 </body>
-<footer>
-    <div class="container-fluid bg-danger">
-        <!-- pie de pagina de la pagina -->
-        </br>
-        <p class="text-center">
-            Creado por: Diana Lopez
-            </br>
-            &copy; 2020
-        </p>
-        </br>
-    </div>
-</footer>
+
 
 </html>
 
