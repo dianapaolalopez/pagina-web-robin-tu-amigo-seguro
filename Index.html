@@ -11,8 +11,105 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <!-- titulo de la pagina -->
     <title>Soldepye-SG-SST</title>
+    <style>
+        .active {
+            background: #dea6d782;
+            border-radius: 5px;
+            border-color: transparent;
+        }
+    </style>
+    
+    
+<script>
+    $(document).ready(function () {
+        // funcion que muestra los datos del formulario
+        function comprobar() {
+            var fec = document.getElementById("fecha");
+            var nom = document.getElementById("nombre");
+            var car = document.getElementById("cargo");
+            var tel = document.getElementById("telefono");
+            var eve = document.getElementById("evento");
+            var des = document.getElementById("descripcion");
+
+            alert("se genero una alerta el dia " + fec.value
+                + "- por el usuario: " + nom.value
+                + "- con el cargo: " + car.value
+                + "- Comuniquese al teléfono: " + tel.value
+                + "- El Evento fue tipo: " + eve.value
+                + "- Descripción: " + des.value
+            );
+        }
+
+        $('.ir-arriba').click(function () {
+            $('body, html').animate({
+                scrollTop: '0px'
+            }, 300);
+            activarclase("1");
+        });
+
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 0) {
+                $('.ir-arriba').slideDown(300);
+            } else {
+                $('.ir-arriba').slideUp(300);
+            }
+        });
+    });
+
+    function llamacuadrodialogo(comp) {
+        let id = comp.id;
+        for (var i = 0; i < 10; i++) {
+            if (id == i) {
+                $('#img' + i).removeAttr('hidden');
+            } else {
+                $('#img' + i).attr("hidden", true);
+            }
+        }
+    }
+
+    function muestramens(comp) {
+        let id = comp;
+        // alert(id);
+        while (id == 2) {
+            $('#camp1').removeAttr('hidden');
+            $('#cimg2').removeAttr('hidden');
+            $('#camp2').attr("hidden", true);
+            $('#cimg1').attr("hidden", true);
+            alert("Nuestra campaña Robin tu amigo seguro");
+            break;
+        }
+        while (id == 1) {
+            $('#camp2').removeAttr('hidden');
+            $('#cimg1').removeAttr('hidden');
+            $('#camp1').attr("hidden", true);
+            $('#cimg2').attr("hidden", true);
+            alert("Bienvenido a Robin tu amigo seguro");
+            break;
+        }
+
+    }
+
+    function activarclase(comp) {
+        let id = comp;
+        //alert(id);
+        for (var i = 0; i < 10; i++) {
+            if (id == i) {
+                $('#m' + i).addClass("active");
+            } else {
+                $('#m' + i).removeClass("active");
+            }
+        }
+    }
+
+
+
+
+
+
+</script>
 </head>
 
 <body>
@@ -28,17 +125,17 @@
         <!---->
         <!-- opciones de menu -->
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
+            <ul class="navbar-nav ml-auto text-center">
+                <li class="nav-item active" id="m1" onclick="activarclase(1)">
                     <a class="nav-link" href="#somos">Quienes Somos</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" id="m2" onclick="activarclase(2)">
                     <a class="nav-link" href="#epp">EPP</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" id="m3" onclick="activarclase(3)">
                     <a class="nav-link" href="#tarjeta">Tarjeta ROBIN</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" id="m4" onclick="activarclase(4)">
                     <a class="nav-link" href="#contacto">Contacto</a>
                 </li>
             </ul>
@@ -67,18 +164,29 @@
         <div class="row">
             <!-- seccion para la ubicacion del menu -->
             <section id="somos">
-                <br><br><br><br> <!--separadores o espaciadores-->
+                <br><br><br><br>
+                <!--separadores o espaciadores-->
                 <!-- titulo de la seccion -->
                 <h1 class="text-center">
                     QUIENES SOMOS
                 </h1>
                 <!-- imagen de la seccion -->
                 <div class="container col-lg-4 col-md-6 col-sm-12 col-xs-12">
-                    <img src="Images/robinilustrado.jpeg" class="img-fluid" alt="">
+                    <img src="Images/robinilustrado.jpeg" class="img-fluid" alt="" id="cimg1">
+                    <img src="Images/robinreal.jpeg" class="img-fluid" alt="" id="cimg2" hidden>
+                    <button type="button" class="btn btn-sm" id="camp1" style="background-color:crimson;"
+                        onclick="muestramens(1)" hidden>
+                        Ver campaña
+                    </button>
+                    <button type="button" class="btn btn-sm" id="camp2" style="background-color:crimson;"
+                        onclick="muestramens(2)">
+                        Ver campaña
+                    </button>
                 </div>
                 <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 container">
                     <br>
-                    <p><!--parrafos-->
+                    <p>
+                        <!--parrafos-->
                         Somos Soldepye, empresas dedicada a la prestacion de servicios de Ingenieria Electrica, con
                         servicio
                         a
@@ -118,13 +226,37 @@
                             <img src="Images/todosepp2.jpeg" class="img-fluid" alt="">
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12  align-self-center">
-                            <p>Listado de EPP:</p>
+                            <p>Listado de EPP: </p>
 
                             <ul>
-                                <li>CASCO:Proteccion en la Cabeza</li>
-                                <li>MONOGAFAS:Proteccion en los ojos</li>
-                                <li>TAPA OIDOS:Proteccion en los oidos</li>
-                                <li>TAPA BOCAS:Proteccion en la nariz</li>
+                                <li>CASCO:Proteccion en la Cabeza
+                                    <button type="button" class="btn btn-sm" id="1" data-toggle="modal"
+                                        data-target="#alertaimagen" style="background-color:crimson;line-height: 0.5;"
+                                        onclick="llamacuadrodialogo(this)">
+                                        Ver imagen
+                                    </button>
+                                </li>
+                                <li>MONOGAFAS:Proteccion en los ojos
+                                    <button type="button" class="btn btn-sm" id="2" data-toggle="modal"
+                                        data-target="#alertaimagen" style="background-color:crimson;line-height: 0.5;"
+                                        onclick="llamacuadrodialogo(this)">
+                                        Ver imagen
+                                    </button>
+                                </li>
+                                <li>TAPA OIDOS:Proteccion en los oidos
+                                    <button type="button" class="btn btn-sm" id="3" data-toggle="modal"
+                                        data-target="#alertaimagen" style="background-color:crimson;line-height: 0.5;"
+                                        onclick="llamacuadrodialogo(this)">
+                                        Ver imagen
+                                    </button>
+                                </li>
+                                <li>TAPA BOCAS:Proteccion en la nariz
+                                    <button type="button" class="btn btn-sm" id="4" data-toggle="modal"
+                                        data-target="#alertaimagen" style="background-color:crimson;line-height: 0.5;"
+                                        onclick="llamacuadrodialogo(this)">
+                                        Ver imagen
+                                    </button>
+                                </li>
                                 <li>GUANTES:Proteccion en las manos</li>
                                 <li>OVEROL:Proteccion en el cuerpo</li>
                                 <li>BOTAS:Proteccion en los pies</li>
@@ -153,7 +285,7 @@
                     </p>
                 </div>
                 <div class="row justify-content-center">
-                        <!-- formulario de eventos  -->
+                    <!-- formulario de eventos  -->
                     <form action="Index.html" method="post" name="formu" id="formu" onsubmit="return comprobar()"
                         class="col-lg-8 col-md-8">
                         <div class="card">
@@ -181,13 +313,16 @@
                                     <label>
                                         Cargo:
                                     </label>
-                                    <input class="form-control" id="cargo" name="cargo" type="text" placeholder="Cargo de quien reporta..." autocomplete="on" required>
+                                    <input class="form-control" id="cargo" name="cargo" type="text"
+                                        placeholder="Cargo de quien reporta..." autocomplete="on" required>
+
                                 </div>
                                 <div class="form-group">
                                     <label>
                                         Telefono de Contacto:
                                     </label>
-                                    <input class="form-control" id="telefono" name="telefono" type="number" min="7" placeholder="Telefono de quien reporta.."  autocomplete="on" required>
+                                    <input class="form-control" id="telefono" name="telefono" type="number" min="7"
+                                        placeholder="Telefono de quien reporta.." autocomplete="on" required>
                                 </div>
                                 <div class="form-group">
                                     <label>
@@ -203,7 +338,8 @@
                                     <label>
                                         Descripcion de los hallazgos:
                                     </label>
-                                    <textarea placeholder="Escribe aquí el texto..." class="form-control" id="descripcion" name="descripcion" rows="6" maxlength="500"
+                                    <textarea placeholder="Escribe aquí el texto..." class="form-control"
+                                        id="descripcion" name="descripcion" rows="6" maxlength="500"
                                         required></textarea>
                                 </div>
                             </div>
@@ -279,6 +415,31 @@
                     </div>
                 </div>
             </section>
+            <span class="ir-arriba">/\</span>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="alertaimagen" tabindex="-1" role="dialog" aria-labelledby="alertaimagenLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="alertaimagenLabel" style="color:black;">EPP</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="Images/todosepp2.jpeg" class="img-fluid" alt="" id="img0" hidden>
+                    <img src="Images/1.jpeg" class="img-fluid" alt="" id="img1" hidden>
+                    <img src="Images/2.jpeg" class="img-fluid" alt="" id="img2" hidden>
+                    <img src="Images/3.jpeg" class="img-fluid" alt="" id="img3" hidden>
+                    <img src="Images/4.jpeg" class="img-fluid" alt="" id="img4" hidden>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
         </div>
     </div>
     <footer>
@@ -297,23 +458,3 @@
 
 
 </html>
-
-<script language="javascript">
-    // funcion que muestra los datos del formulario
-    function comprobar() {
-        var fec = document.getElementById("fecha");
-        var nom = document.getElementById("nombre");
-        var car = document.getElementById("cargo");
-        var tel = document.getElementById("telefono");
-        var eve = document.getElementById("evento");
-        var des = document.getElementById("descripcion");
-
-        alert("se genero una alerta el dia " + fec.value
-            + "- por el usuario: " + nom.value
-            + "- con el cargo: " + car.value
-            + "- Comuniquese al teléfono: " + tel.value
-            + "- El Evento fue tipo: " + eve.value
-            + "- Descripción: " + des.value
-        );
-    }
-</script>
